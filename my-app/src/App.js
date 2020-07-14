@@ -12,24 +12,26 @@ class App extends React.Component {
   }
 
 
-  componentDidMount() {
-    fetch(`https://api.github.com/users/${this.state.user}`)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        this.setState({data: res})
-      })
-      .catch(err => console.log(err))
-  }
+  
   
   componentWillMount() {
     fetch(`https://api.github.com/users/${this.state.user}/followers`)
       .then(res => res.json())
       .then(res =>  {
-        console.log(res);
+        console.log("MS: componentWillMount", res);
         this.setState({followers: res})
       })
       .catch(err => console.log(err)); 
+  }
+
+  componentDidMount() {
+    fetch(`https://api.github.com/users/${this.state.user}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log("MS: componentDidMount", res);
+        this.setState({data: res})
+      })
+      .catch(err => console.log(err))
   }
   
   componentDidUpdate(prevProps, prevState) {
@@ -37,7 +39,7 @@ class App extends React.Component {
     fetch(`https://api.github.com/users/${this.state.user}`)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        console.log("MS: componentDidUpdate", res);
         this.setState({data: res})
       })
       .catch(err => console.log(err));
@@ -45,7 +47,7 @@ class App extends React.Component {
       fetch(`https://api.github.com/users/${this.state.user}/followers`)
       .then(res => res.json())
       .then(res =>  {
-        console.log(res);
+        console.log("MS: fetch", res);
         this.setState({followers: res})
       })
       .catch(err => console.log(err));
@@ -55,6 +57,7 @@ class App extends React.Component {
     this.setState({
       user: login
     })
+    console.log("MS: changeUser")
   }
 
 
