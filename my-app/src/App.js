@@ -1,26 +1,73 @@
 import React from 'react';
-import logo from './logo.svg';
+import {UserCard} from "./Components/UserCard";
+import {FriendList} from "./Components/FriendList";
+import {Search} from "./Components/Search";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    data: {},
+    followers: [],
+    user: "marksayers46"
+  }
+
+
+  componentDidMount() {
+    fetch(`https://api.github.com/users/${this.state.user}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.setState({data: res})
+      })
+      .catch(err => console.log(err))
+  }
+  
+  componentWillMount() {
+    fetch(`https://api.github.com/users/${this.state.user}/followers`)
+      .then(res => res.json())
+      .then(res =>  {
+        console.log(res);
+        this.setState({followers: res})
+      })
+      .catch(err => console.log(err)); 
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.user !== prevState.user) {
+    fetch(`https://api.github.com/users/${this.state.user}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.setState({data: res})
+      })
+      .catch(err => console.log(err));
+  
+      fetch(`https://api.github.com/users/${this.state.user}/followers`)
+      .then(res => res.json())
+      .then(res =>  {
+        console.log(res);
+        this.setState({followers: res})
+      })
+      .catch(err => console.log(err));
+  }}
+  
+  changeUser = login => {
+    this.setState({
+      user: login
+    })
+  }
+
+
+  render() {
+    return (
+      <div classNAme="App">
+        <UserCard data={this.state.data} />
+        <FriendList followers={this.state.followers} changeUser={this.changeUser}/>
+        <Search changeUser={this.changeUser}/>
+      </div>
+    );
+  }
 }
 
 export default App;
+

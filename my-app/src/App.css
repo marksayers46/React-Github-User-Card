@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background: #24292E;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  display: flex;
+  justify-content: space-around;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.profile {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  font-size: 18px;
+}
+
+.profile h2, .profile h4 {
+  line-height: 0.2;
+}
+
+.profile a {
+  text-decoration: none;
+  color: #1074E7;
+}
+
+.calendar {
+  margin: 20px auto 50px auto;
+}
+
+.followersList {
+  width: 30%;
+  margin-top: 80px;
+}
+
+.followers {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.followerImg {
+  width: 80px;
+  margin-right: 20px;
+}
+
+.followerLogin {
+  font-size: 24px;
+}
+
+.viewProfile {
+  height: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #1074E7;
+  color: white;
+  border-radius: 10px;
+}
+
+.search {
+  margin-top: 10px;
+}
+
+.user {
+  width: 100%;
+  margin-top: 4px;
+  font-size: 14px;
+  background: #1074E7;
+  color: white;
+  border-radius: 10px;
 }
