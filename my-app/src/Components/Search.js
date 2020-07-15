@@ -41,8 +41,8 @@ export class Search extends React.Component {
         fetch(`https://api.github.com/search/users?q=${this.state.user}`)
         .then(res => res.json())
         .then(res =>  {
-          console.log(res.items)
-          this.setState({search: res.items})
+        console.log(res.items)
+        this.setState({search: res.items})
         })
         .catch(err => console.log(err))
     }}
