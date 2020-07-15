@@ -11,7 +11,15 @@ class App extends React.Component {
     user: "marksayers46"
   }
 
-
+  componentDidMount() {
+    fetch(`https://api.github.com/users/${this.state.user}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log("MS: componentDidMount", res);
+        this.setState({data: res})
+      })
+      .catch(err => console.log(err))
+  }
   
   
   componentWillMount() {
@@ -24,15 +32,7 @@ class App extends React.Component {
       .catch(err => console.log(err)); 
   }
 
-  componentDidMount() {
-    fetch(`https://api.github.com/users/${this.state.user}`)
-      .then(res => res.json())
-      .then(res => {
-        console.log("MS: componentDidMount", res);
-        this.setState({data: res})
-      })
-      .catch(err => console.log(err))
-  }
+  
   
   componentDidUpdate(prevProps, prevState) {
     if (this.state.user !== prevState.user) {
