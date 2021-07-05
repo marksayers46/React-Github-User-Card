@@ -1,0 +1,73 @@
+body {
+  background: #24292E;
+  color: white;
+}
+
+.App {
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  font-size: 18px;
+}
+
+.profile h2, .profile h4 {
+  line-height: 0.2;
+}
+
+.profile a {
+  text-decoration: none;
+  color: #1074E7;
+}
+
+.calendar {
+  margin: 20px auto 50px auto;
+}
+
+.followersList {
+  width: 30%;
+  margin-top: 80px;
+}
+
+.followers {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.followerImg {
+  width: 80px;
+  margin-right: 20px;
+}
+
+.followerLogin {
+  font-size: 24px;
+}
+
+.viewProfile {
+  height: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #1074E7;
+  color: white;
+  border-radius: 10px;
+}
+
+.search {
+  margin-top: 10px;
+}
+
+.user {
+  width: 100%;
+  margin-top: 4px;
+  font-size: 14px;
+  background: #1074E7;
+  color: white;
+  border-radius: 10px;
+}
